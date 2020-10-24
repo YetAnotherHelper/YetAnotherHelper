@@ -28,7 +28,7 @@ namespace Celeste.Mod.YetAnotherHelper.Triggers
 
         private readonly bool Constant;
 
-        private int ConstantTimer = 10;
+        private int ConstantTimer = -1;
 
         private readonly Random rand;
 
@@ -67,7 +67,7 @@ namespace Celeste.Mod.YetAnotherHelper.Triggers
 
             if (Constant)
             {
-                ConstantTimer = -1;
+                ConstantTimer -= 1;
 
                 if (ConstantTimer <= 0)
                 {
@@ -81,7 +81,7 @@ namespace Celeste.Mod.YetAnotherHelper.Triggers
         {
             Level level = player.SceneAs<Level>();
             if (StrikeHeight == 0)
-                level.Add(new LightningStrike(new Vector2(player.X + PlayerOffset, level.Bounds.Top), Seed, level.Bounds.Height, Delay));
+                level.Add(new LightningStrike(new Vector2(player.X + PlayerOffset, level.Bounds.Top), rand.Next(1, 100), level.Bounds.Height, Delay));
             else
                 level.Add(new LightningStrike(new Vector2(player.X + PlayerOffset, player.Y + VerticalOffset), rand.Next(1, 100), StrikeHeight, Delay));
 
