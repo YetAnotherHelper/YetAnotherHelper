@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Celeste.Mod.YetAnotherHelper.Entities;
+using System;
 
 namespace Celeste.Mod.YetAnotherHelper.Module
 {
@@ -20,6 +21,7 @@ namespace Celeste.Mod.YetAnotherHelper.Module
 
         public override void Load()
         {
+            On.Celeste.LevelLoader.LoadingThread += add_FlagKillBarrierRenderer;
         }
 
         public override void Initialize()
@@ -32,7 +34,13 @@ namespace Celeste.Mod.YetAnotherHelper.Module
 
         public override void Unload()
         {
+            On.Celeste.LevelLoader.LoadingThread -= add_FlagKillBarrierRenderer;
         }
 
+        private static void add_FlagKillBarrierRenderer(On.Celeste.LevelLoader.orig_LoadingThread orig, LevelLoader self)
+        {
+            orig.Invoke(self);
+            self.Level.Add(new FlagKillBarrierRenderer());
+        }
     }
 }

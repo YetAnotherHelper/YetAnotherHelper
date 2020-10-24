@@ -31,6 +31,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Entities\FlagKillBarrier.cs" />
+    <Compile Include="Entities\FlagKillBarrierRenderer.cs" />
     <Compile Include="Module\YetAnotherHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Triggers\FlagKillBox.cs" />
