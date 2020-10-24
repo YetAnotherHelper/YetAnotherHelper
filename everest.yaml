@@ -1,5 +1,5 @@
 - Name: YetAnotherHelper
-  Version: 1.01.11
+  Version: 1.01.20
   DLL: YetAnotherHelper.dll
   Dependencies:
     - Name: Everest

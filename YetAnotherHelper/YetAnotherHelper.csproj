@@ -33,6 +33,7 @@
   <ItemGroup>
     <Compile Include="Module\YetAnotherHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Triggers\FlagKillBox.cs" />
     <Compile Include="Triggers\LightningStrikeTrigger.cs" />
     <Compile Include="Triggers\SpawnJellyTrigger.cs" />
   </ItemGroup>

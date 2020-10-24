@@ -27,7 +27,6 @@ namespace Celeste.Mod.YetAnotherHelper.Triggers
             Level level = player.SceneAs<Level>();
             if(!OnlyOnce)
                 level.Add(new Glider(player.Position, false, false));
-
             else
             {
                 if(!Activated)

@@ -53,6 +53,7 @@ namespace Celeste.Mod.YetAnotherHelper.Triggers
         public override void OnEnter(Player player)
         {
             base.OnEnter(player);
+
             if (!Activated && !Constant)
             {
                 Strike(player);
