@@ -1,0 +1,32 @@
+# -- Entity and Trigger Tooltips --
+#    placements.entities.entityName.tooltips.attr=Tooltip
+#    placements.triggers.triggerName.tooltips.attr=Tooltip
+
+# -- Entities --
+
+# Flag Kill Barrier
+
+placements.entities.YetAnotherHelper/FlagKillBarrier.tooltips.flag=The flag needed for the barrier to be active.
+placements.entities.YetAnotherHelper/FlagKillBarrier.tooltips.trueColorHex=Color of the barrier when it is active.
+placements.entities.YetAnotherHelper/FlagKillBarrier.tooltips.falseColorHex=Color of the barrier when it is inactive.
+
+# -- Triggers --
+
+# Flag Kill Box
+
+placement.triggers.YetAnotherHelper/FlagKillBox.tooltips.flag=The flag needed for the trigger to be active.
+
+# Lightning Strike Trigger
+
+placements.triggers.YetAnotherHelper/LightningStrikeTrigger.tooltips.playerOffset=The X offset of the lightning relative to the player's position.
+placements.triggers.YetAnotherHelper/LightningStrikeTrigger.tooltips.verticalOffset=The Y offset of the lightning relative to the player's position.
+placements.triggers.YetAnotherHelper/LightningStrikeTrigger.tooltips.strikeHeight=The height of the lightning strike. If set to 0, the height will be the screen's height.
+placements.triggers.YetAnotherHelper/LightningStrikeTrigger.tooltips.seed=The seed for the randomizer which generates the lightning strike.
+placements.triggers.YetAnotherHelper/LightningStrikeTrigger.tooltips.delay=The delay, in seconds, between the player entering the trigger and the appearance of the lightning strike.
+placements.triggers.YetAnotherHelper/LightningStrikeTrigger.tooltips.rain=Upon lightning strike, rain will begin falling in the level.
+placements.triggers.YetAnotherHelper/LightningStrikeTrigger.tooltips.flash=Upon lightning strike, the screen will flash white.
+placements.triggers.YetAnotherHelper/LightningStrikeTrigger.tooltips.constant=If lightning should constantly strike while the player is inside the trigger.
+
+# Spawn Jelly Trigger
+
+placements.triggers.YetAnotherHelper/SpawnJellyTrigger.tooltips.onlyOnce=If set to false, jellies will spawn every time the player enters the trigger again.

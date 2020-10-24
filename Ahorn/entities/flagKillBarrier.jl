@@ -27,7 +27,7 @@ function Ahorn.render(ctx::Ahorn.Cairo.CairoContext, entity::FlagKillBarrier, ro
     width = Int(get(entity.data, "width", 32))
     height = Int(get(entity.data, "height", 32))
     
-    Ahorn.drawRectangle(ctx, 0, 0, width, height, (0.45, 0.0, 0.45, 0.8), (0.0, 0.0, 0.0, 0.0))
+    Ahorn.drawRectangle(ctx, 0, 0, width, height, (0.45, 0.45, 0.45, 0.8), (0.0, 0.0, 0.0, 0.0))
 end
 
 end
