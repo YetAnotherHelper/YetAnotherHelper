@@ -1,5 +1,6 @@
 ﻿using Celeste.Mod.Entities;
 using Microsoft.Xna.Framework;
+using Monocle;
 
 namespace Celeste.Mod.YetAnotherHelper.Triggers
 {
@@ -34,7 +35,7 @@ namespace Celeste.Mod.YetAnotherHelper.Triggers
                 return;
             else
             {
-                player.Die(Vector2.One, false, true);
+                player.Die((player.Position - Position).SafeNormalize());
             }
         }
     }

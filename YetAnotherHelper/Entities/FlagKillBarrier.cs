@@ -77,7 +77,7 @@ namespace Celeste.Mod.YetAnotherHelper.Entities
                 {
                     if (level.Session.GetFlag(ReferenceFlag))
                     {
-                        player.Die(Vector2.One, false, true);
+                        player.Die((player.Position - Position).SafeNormalize());
                     }
                 }
             }
