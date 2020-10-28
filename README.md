@@ -19,8 +19,8 @@ If you are using this mod for your map, don't forget to list it as a dependency 
 An updated list of entities and triggers with their respective explanation of what they do is on [GameBanana](https://gamebanana.com/gamefiles/13148) but can also be found here:
 
 ### Entities
-- **Flag Kill Barrier**: A barrier that will kill you if you have the flag assigned to it.
 - **Bubble Columns:** Streams of bubbles which push the player and other objects around.
+- **Flag Kill Barrier**: A barrier that will kill you if you have the flag assigned to it.
 
 ### Triggers
 - **Flag Kill Box**: Same as Flag Kill Barrier but invisible.
