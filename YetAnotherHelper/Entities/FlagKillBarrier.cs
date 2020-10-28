@@ -72,8 +72,7 @@ namespace Celeste.Mod.YetAnotherHelper.Entities
 
             foreach (Entity entity in CollideAll<Actor>())
             {
-                bool dead = entity.GetType().ToString().Contains("Player");
-                if (dead)
+                if (entity.GetType().ToString().Contains("Player"))
                 {
                     if (level.Session.GetFlag(ReferenceFlag))
                     {
