@@ -70,11 +70,14 @@ namespace Celeste.Mod.YetAnotherHelper.Entities
             Level level = SceneAs<Level>();
             Player player = level.Tracker.GetEntity<Player>();
 
+            bool flag = level.Session.GetFlag(ReferenceFlag);
+            Collidable = flag;
+
             foreach (Entity entity in CollideAll<Actor>())
             {
                 if (entity.GetType().ToString().Contains("Player"))
                 {
-                    if (level.Session.GetFlag(ReferenceFlag))
+                    if (flag)
                     {
                         player.Die((player.Position - Position).SafeNormalize());
                     }
