@@ -1,28 +1,28 @@
-module YetAnotherHelperBubblePushField
+module YetAnotherHelperBubbleField
 
 using ..Ahorn, Maple
 
-@mapdef Entity "YetAnotherHelper/BubbleField" YANBubbleField(x::Integer, y::Integer, width::Integer=Maple.defaultBlockWidth, height::Integer=Maple.defaultBlockHeight,
+@mapdef Entity "YetAnotherHelper/BubbleField" BubbleField(x::Integer, y::Integer, width::Integer=Maple.defaultBlockWidth, height::Integer=Maple.defaultBlockHeight,
 	strength::Number=1.0, direction::String="Right", flag::String="bubble_push_field", activationMode::String="Always")
 
 const placements = Ahorn.PlacementDict(
 	"Bubble Column (Yet Another Helper)" => Ahorn.EntityPlacement(
-		YANBubbleField,
+		BubbleField,
 		"rectangle"
 	)
 )
 
-Ahorn.editingOptions(entity::YANBubbleField) = Dict{String,Any}(
+Ahorn.editingOptions(entity::BubbleField) = Dict{String,Any}(
 	"direction" => ["Up", "Down", "Left", "Right"],
 	"activationMode" => ["Always", "OnlyWhenFlagActive", "OnlyWhenFlagInactive"]
 )
 
-Ahorn.minimumSize(entity::YANBubbleField) = 8, 8
-Ahorn.resizable(entity::YANBubbleField) = true, true
+Ahorn.minimumSize(entity::BubbleField) = 8, 8
+Ahorn.resizable(entity::BubbleField) = true, true
 
-Ahorn.selection(entity::YANBubbleField) = Ahorn.getEntityRectangle(entity)
+Ahorn.selection(entity::BubbleField) = Ahorn.getEntityRectangle(entity)
 
-function Ahorn.render(ctx::Ahorn.Cairo.CairoContext, entity::YANBubbleField, room::Maple.Room)
+function Ahorn.render(ctx::Ahorn.Cairo.CairoContext, entity::BubbleField, room::Maple.Room)
 	x = Int(get(entity.data, "x", 0))
 	y = Int(get(entity.data, "y", 0))
 

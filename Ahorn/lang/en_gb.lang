@@ -4,6 +4,12 @@
 
 # -- Entities --
 
+# Bubble Field
+placements.entities.YetAnotherHelper/BubbleField.tooltips.strength=The strength with which the bubbles push objects.
+placements.entities.YetAnotherHelper/BubbleField.tooltips.direction=The direction the bubbles move.
+placements.entities.YetAnotherHelper/BubbleField.tooltips.activationMode=Determines on which condition the bubble column activates.
+placements.entities.YetAnotherHelper/BubbleField.tooltips.flag=The session flag this bubble column reacts to (when Activation Mode is "only if flag [in]active").
+
 # Flag Kill Barrier
 
 placements.entities.YetAnotherHelper/FlagKillBarrier.tooltips.flag=The flag needed for the barrier to be active.
