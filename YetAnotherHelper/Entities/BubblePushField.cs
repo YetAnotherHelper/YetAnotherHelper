@@ -53,8 +53,6 @@ namespace Celeste.Mod.YetAnotherHelper.Entities
             Enum.TryParse(direction, out Direction);
 
             Collider = new Hitbox(width, height);
-
-            Logger.Log("YAN", "Bubbles");
         }
 
         public override void Added(Scene scene) 
