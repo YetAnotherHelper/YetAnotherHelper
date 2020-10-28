@@ -20,8 +20,14 @@ An updated list of entities and triggers with their respective explanation of wh
 
 ### Entities
 - **Flag Kill Barrier**: A barrier that will kill you if you have the flag assigned to it.
+- **Bubble Columns:** Streams of bubbles which push the player and other objects around.
 
 ### Triggers
 - **Flag Kill Box**: Same as Flag Kill Barrier but invisible.
 - **Lightning Strike Trigger**: Creates a Lightning Strike on the background according to settings given by the mapper.
 - **Spawn Jelly Trigger**: Spawns a jelly where the player currently is, can be set to be multiple times.
+
+## Credits
+The following people's works are used in Yet Another Helper:
+- **TheAdvertisement's** bubble sprites are used in Bubble Columns
+- **max480's** flag code for Bubble Columns is used
