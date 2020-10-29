@@ -5,6 +5,7 @@
 # -- Entities --
 
 # Bubble Field
+
 placements.entities.YetAnotherHelper/BubbleField.tooltips.strength=The strength with which the bubbles push objects.
 placements.entities.YetAnotherHelper/BubbleField.tooltips.direction=The direction the bubbles move.
 placements.entities.YetAnotherHelper/BubbleField.tooltips.activationMode=Determines on which condition the bubble column activates.
@@ -32,6 +33,12 @@ placements.triggers.YetAnotherHelper/LightningStrikeTrigger.tooltips.delay=The d
 placements.triggers.YetAnotherHelper/LightningStrikeTrigger.tooltips.rain=Upon lightning strike, rain will begin falling in the level.
 placements.triggers.YetAnotherHelper/LightningStrikeTrigger.tooltips.flash=Upon lightning strike, the screen will flash white.
 placements.triggers.YetAnotherHelper/LightningStrikeTrigger.tooltips.constant=If lightning should constantly strike while the player is inside the trigger.
+
+# Remove Light Sources Trigger
+placements.triggers.YetAnotherHelper/RemoveLightSourcesTrigger.tooltips.offsetTo=Determines how the lighting changes passing through the trigger.
+placements.triggers.YetAnotherHelper/RemoveLightSourcesTrigger.tooltips.offsetFrom=Determines how the lighting changes passing through the trigger backwards.
+placements.triggers.YetAnotherHelper/RemoveLightSourcesTrigger.tooltips.onlyOnce=If checked, the trigger will be disabled when the player first leaves it.
+placements.triggers.YetAnotherHelper/RemoveLightSourcesTrigger.tooltips.positionMode=Determines which direction the lighting fades towards.
 
 # Spawn Jelly Trigger
 
