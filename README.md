@@ -1,9 +1,9 @@
 # Yet Another Helper
-Yet Another Helper for Celeste, what were you expecting?
+Yet Another Helper for [Celeste](http://www.celestegame.com/), what were you expecting?
 
 The mod can be downloaded on [GameBanana](https://gamebanana.com/gamefiles/13148).
 
-This mod is a list of entities and triggers I've thought or wanted to create because of a map or suggestions from others. If you want to submit feedback, an idea or ask for support, please mention me (Norah#1029) on [Celeste Discord Server](https://discord.gg/celeste) or submit an issue to this repository.
+This mod is a list of entities and triggers We've thought or wanted to create because of a map or suggestions from others. If you want to submit feedback, an idea or ask for support, please mention us (**Norah#1029** or **WoofWoofDoggo#0001**) on [Celeste Discord Server](https://discord.gg/celeste) or submit an issue to this repository.
 
 ## For Mappers
 If you are using this mod for your map, don't forget to list it as a dependency in `everest.yaml` like in the following example:
