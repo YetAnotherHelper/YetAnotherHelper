@@ -1,4 +1,5 @@
 ﻿using Celeste.Mod.YetAnotherHelper.Entities;
+using Celeste.Mod.YetAnotherHelper.Triggers;
 using System;
 
 namespace Celeste.Mod.YetAnotherHelper.Module
@@ -17,11 +18,13 @@ namespace Celeste.Mod.YetAnotherHelper.Module
 
         public override Type SaveDataType => null;
 
-        public override Type SessionType => null;
+        public override Type SessionType => typeof(YetAnotherHelperSession);
+        public YetAnotherHelperSession Session => (YetAnotherHelperSession)Instance._Session;
 
         public override void Load()
         {
             On.Celeste.LevelLoader.LoadingThread += add_FlagKillBarrierRenderer;
+            RemoveLightSourcesTrigger.Load();
         }
 
         public override void Initialize()
@@ -35,6 +38,7 @@ namespace Celeste.Mod.YetAnotherHelper.Module
         public override void Unload()
         {
             On.Celeste.LevelLoader.LoadingThread -= add_FlagKillBarrierRenderer;
+            RemoveLightSourcesTrigger.Unload();
         }
 
         private static void add_FlagKillBarrierRenderer(On.Celeste.LevelLoader.orig_LoadingThread orig, LevelLoader self)
