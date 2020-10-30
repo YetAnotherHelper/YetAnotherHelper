@@ -87,55 +87,62 @@ namespace Celeste.Mod.YetAnotherHelper.Entities
             Collidable = true;
 
             FramesSinceSpawn++;
-            if(FramesSinceSpawn == SpawnFrame) 
+            if (Strength >= 0.1)
             {
-                FramesSinceSpawn = 0;
-                SpawnFrame = Calc.Random.Next(2, 10);
-                Add(new BubbleParticle(true, true));
-            }
-
-            foreach(WindMover mover in Scene.Tracker.GetComponents<WindMover>()) 
-            {
-                if(mover.Entity.CollideCheck(this)) 
+                if (FramesSinceSpawn == SpawnFrame)
                 {
-                    if(WindMovers.ContainsKey(mover))
-                        WindMovers[mover] = Calc.Approach(WindMovers[mover], Strength, Engine.DeltaTime / .6f);
-                    else
-                        WindMovers.Add(mover, 0f);
-                } else {
-                    if(WindMovers.ContainsKey(mover)) 
+                    FramesSinceSpawn = 0;
+                    SpawnFrame = Calc.Random.Next(2, 10);
+                    Add(new BubbleParticle(true, true));
+                }
+
+                foreach (WindMover mover in Scene.Tracker.GetComponents<WindMover>())
+                {
+                    if (mover.Entity.CollideCheck(this))
                     {
-                        WindMovers[mover] = Calc.Approach(WindMovers[mover], 0f, Engine.DeltaTime / 0.3f);
-                        if(WindMovers[mover] == 0f)
-                            WindMovers.Remove(mover);
+                        if (WindMovers.ContainsKey(mover))
+                            WindMovers[mover] = Calc.Approach(WindMovers[mover], Strength, Engine.DeltaTime / .6f);
+                        else
+                            WindMovers.Add(mover, 0f);
+                    }
+                    else
+                    {
+                        if (WindMovers.ContainsKey(mover))
+                        {
+                            WindMovers[mover] = Calc.Approach(WindMovers[mover], 0f, Engine.DeltaTime / 0.3f);
+                            if (WindMovers[mover] == 0f)
+                                WindMovers.Remove(mover);
+                        }
                     }
                 }
+
+                foreach (WindMover mover in WindMovers.Keys)
+                {
+                    float windSpeed = Strength * 2f * Ease.CubeInOut(WindMovers[mover]);
+
+                    if (mover != null && mover.Entity != null && mover.Entity.Scene != null)
+                        switch (Direction)
+                        {
+                            case PushDirection.Up:
+                                mover.Move(new Vector2(0, -windSpeed));
+                                break;
+
+                            case PushDirection.Down:
+                                mover.Move(new Vector2(0, windSpeed));
+                                break;
+
+                            case PushDirection.Left:
+                                mover.Move(new Vector2(-windSpeed, 0));
+                                break;
+
+                            case PushDirection.Right:
+                                mover.Move(new Vector2(windSpeed, 0));
+                                break;
+                        }
+                }
             }
-
-            foreach(WindMover mover in WindMovers.Keys) 
-            {
-                float windSpeed = Strength * 2f * Ease.CubeInOut(WindMovers[mover]);
-
-                if(mover != null && mover.Entity != null && mover.Entity.Scene != null)
-                    switch(Direction) 
-                    {
-                        case PushDirection.Up:
-                            mover.Move(new Vector2(0, -windSpeed));
-                            break;
-
-                        case PushDirection.Down:
-                            mover.Move(new Vector2(0, windSpeed));
-                            break;
-
-                        case PushDirection.Left:
-                            mover.Move(new Vector2(-windSpeed, 0));
-                            break;
-
-                        case PushDirection.Right:
-                            mover.Move(new Vector2(windSpeed, 0));
-                            break;
-                    }
-            }
+            else
+                return;
         }
     }
 
