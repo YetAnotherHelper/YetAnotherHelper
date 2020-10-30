@@ -141,8 +141,6 @@ namespace Celeste.Mod.YetAnotherHelper.Entities
                         }
                 }
             }
-            else
-                return;
         }
     }
 
