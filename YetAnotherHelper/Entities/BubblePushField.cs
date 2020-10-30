@@ -87,7 +87,7 @@ namespace Celeste.Mod.YetAnotherHelper.Entities
             Collidable = true;
 
             FramesSinceSpawn++;
-            if (Strength >= 0.1)
+            if (Strength > 0)
             {
                 if (FramesSinceSpawn == SpawnFrame)
                 {
