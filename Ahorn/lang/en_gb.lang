@@ -6,7 +6,7 @@
 
 # Bubble Field
 
-placements.entities.YetAnotherHelper/BubbleField.tooltips.strength=The strength with which the bubbles push objects.
+placements.entities.YetAnotherHelper/BubbleField.tooltips.strength=The strength with which the bubbles push objects (If value is 0 or negative this won't work).
 placements.entities.YetAnotherHelper/BubbleField.tooltips.direction=The direction the bubbles move.
 placements.entities.YetAnotherHelper/BubbleField.tooltips.activationMode=Determines on which condition the bubble column activates.
 placements.entities.YetAnotherHelper/BubbleField.tooltips.flag=The session flag this bubble column reacts to (when Activation Mode is "only if flag [in]active").
@@ -35,6 +35,7 @@ placements.triggers.YetAnotherHelper/LightningStrikeTrigger.tooltips.flash=Upon 
 placements.triggers.YetAnotherHelper/LightningStrikeTrigger.tooltips.constant=If lightning should constantly strike while the player is inside the trigger.
 
 # Remove Light Sources Trigger
+
 placements.triggers.YetAnotherHelper/RemoveLightSourcesTrigger.tooltips.offsetTo=Determines how the lighting changes passing through the trigger.
 placements.triggers.YetAnotherHelper/RemoveLightSourcesTrigger.tooltips.offsetFrom=Determines how the lighting changes passing through the trigger backwards.
 placements.triggers.YetAnotherHelper/RemoveLightSourcesTrigger.tooltips.onlyOnce=If checked, the trigger will be disabled when the player first leaves it.
