@@ -6,7 +6,8 @@ namespace Celeste.Mod.YetAnotherHelper.Entities
     [CustomEntity("YetAnotherHelper/StickyJellyfish")]
     public class StickyJellyfish : Glider
     {
-        public StickyJellyfish(EntityData data, Vector2 offset) :base(data, offset)
+
+        public StickyJellyfish(EntityData data, Vector2 offset) : base(data, offset)
         {
         }
 
