@@ -34,6 +34,7 @@ namespace Celeste.Mod.YetAnotherHelper.Module
 
         public override void LoadContent(bool firstLoad)
         {
+            StickyJellyfish.LoadContent();
         }
 
         public override void Unload()
