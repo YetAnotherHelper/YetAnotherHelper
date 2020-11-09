@@ -21,7 +21,7 @@ An updated list of entities and triggers with their respective explanation of wh
 ### Entities
 - **Bubble Columns**: Streams of bubbles which push the player and other objects around.
 - **Flag Kill Barrier**: A barrier that will kill you if you have the flag assigned to it.
-- **Sticky Jellyfish**: A jellyfish that will levitate once the player drops it or it loses its horizontal speed.
+- **Sticky Jellyfish**: A jellyfish that will stick to walls once hit and levitate in the air when it loses horizontal speed.
 
 ### Triggers
 - **Flag Kill Box**: Same as Flag Kill Barrier but invisible.
