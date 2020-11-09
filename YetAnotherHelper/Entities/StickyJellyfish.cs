@@ -27,7 +27,7 @@ namespace Celeste.Mod.YetAnotherHelper.Entities
 
         public static void LoadContent()
         {
-            SpriteBank = new SpriteBank(GFX.Game, "Graphics/YAN/Sprites.xml");
+            SpriteBank = new SpriteBank(GFX.Game, "Graphics/YAN/StickyJellyfish.xml");
         }
 
         public static void Unload()
@@ -50,7 +50,7 @@ namespace Celeste.Mod.YetAnotherHelper.Entities
             if (self is StickyJellyfish)
             {
                 if (data.Hit is DashSwitch)
-                    (data.Hit as DashSwitch).OnDashCollide(null, Vector2.UnitX * (float)Math.Sign(self.Speed.X));
+                    (data.Hit as DashSwitch).OnDashCollide(null, Vector2.UnitX * Math.Sign(self.Speed.X));
                 self.Speed.X = 0f;
             }
             orig(self, data);
