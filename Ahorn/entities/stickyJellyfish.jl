@@ -2,7 +2,7 @@ module YetAnotherHelperStickyJellyfish
 
 using ..Ahorn, Maple
 
-@mapdef Entity "YetAnotherHelper/StickyJellyfish" StickyJellyfish(x::Integer, y::Integer, width::Integer=Maple.defaultBlockWidth, height::Integer=Maple.defaultBlockHeight)
+@mapdef Entity "YetAnotherHelper/StickyJellyfish" StickyJellyfish(x::Integer, y::Integer)
 
 const placements = Ahorn.PlacementDict(
     "Sticky Jellyfish (Yet Another Helper)" => Ahorn.EntityPlacement(
@@ -11,16 +11,16 @@ const placements = Ahorn.PlacementDict(
     )
 )
 
-sprite = "objects/glider/idle0"
+sprite = "YAN/stickyJellyfish"
 
 function Ahorn.selection(entity::StickyJellyfish)
     x, y = Ahorn.position(entity)
 
-    return Ahorn.getSpriteRectangle(sprite, x, y)
+    return Ahorn.getSpriteRectangle(sprite, x, y - 5)
 end
 
 function Ahorn.render(ctx::Ahorn.Cairo.CairoContext, entity::StickyJellyfish, room::Maple.Room)
-    Ahorn.drawSprite(ctx, sprite, 0, 0)
+    Ahorn.drawSprite(ctx, sprite, 0, -5)
 end
 
 end
