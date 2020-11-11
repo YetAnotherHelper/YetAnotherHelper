@@ -17,6 +17,10 @@ placements.entities.YetAnotherHelper/FlagKillBarrier.tooltips.flag=The flag need
 placements.entities.YetAnotherHelper/FlagKillBarrier.tooltips.trueColorHex=Color of the barrier when it is active.
 placements.entities.YetAnotherHelper/FlagKillBarrier.tooltips.falseColorHex=Color of the barrier when it is inactive.
 
+# Object Holder
+
+placements.entities.YetAnotherHelper/ObjectHolder.tooltips.spriteName=The path to the sprite which is displayed.
+
 # -- Triggers --
 
 # Flag Kill Box
