@@ -25,6 +25,7 @@ namespace Celeste.Mod.YetAnotherHelper.Module
         {
             On.Celeste.LevelLoader.LoadingThread += add_FlagKillBarrierRenderer;
             RemoveLightSourcesTrigger.Load();
+            StickyJellyfish.Load();
         }
 
         public override void Initialize()
@@ -33,12 +34,14 @@ namespace Celeste.Mod.YetAnotherHelper.Module
 
         public override void LoadContent(bool firstLoad)
         {
+            StickyJellyfish.LoadContent();
         }
 
         public override void Unload()
         {
             On.Celeste.LevelLoader.LoadingThread -= add_FlagKillBarrierRenderer;
             RemoveLightSourcesTrigger.Unload();
+            StickyJellyfish.Unload();
         }
 
         private static void add_FlagKillBarrierRenderer(On.Celeste.LevelLoader.orig_LoadingThread orig, LevelLoader self)
