@@ -21,6 +21,7 @@ An updated list of entities and triggers with their respective explanation of wh
 ### Entities
 - **Bubble Columns**: Streams of bubbles which push the player and other objects around.
 - **Flag Kill Barrier**: A barrier that will kill you if you have the flag assigned to it.
+- **Spiked Jump Through Controller:** Prevent Madeline from dying when grabbing objects on top of spiked jumpthroughs.
 - **Sticky Jellyfish**: A jellyfish that will stick to walls once hit and levitate in the air when it loses horizontal speed.
 
 ### Triggers

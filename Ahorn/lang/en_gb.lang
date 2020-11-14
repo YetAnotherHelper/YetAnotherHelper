@@ -17,6 +17,10 @@ placements.entities.YetAnotherHelper/FlagKillBarrier.tooltips.flag=The flag need
 placements.entities.YetAnotherHelper/FlagKillBarrier.tooltips.trueColorHex=Color of the barrier when it is active.
 placements.entities.YetAnotherHelper/FlagKillBarrier.tooltips.falseColorHex=Color of the barrier when it is inactive.
 
+# Spiked Jump Through Controller
+
+placements.entities.YetAnotherHelper/SpikeJumpThruController.tooltips.persistent=Whether or not the controller should stay active across rooms. If set to true, the controller's effects will stay active until the player leaves a room with a non-persistent controller.
+
 # -- Triggers --
 
 # Flag Kill Box

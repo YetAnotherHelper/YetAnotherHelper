@@ -11,7 +11,7 @@ const placements = Ahorn.PlacementDict(
     )
 )
 
-sprite = "YAN/stickyJellyfish"
+sprite = "ahorn/YetAnotherHelper/stickyJellyfish"
 
 function Ahorn.selection(entity::StickyJellyfish)
     x, y = Ahorn.position(entity)
