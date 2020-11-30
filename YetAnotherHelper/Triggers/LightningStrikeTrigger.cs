@@ -32,15 +32,15 @@ namespace Celeste.Mod.YetAnotherHelper.Triggers
 
         private readonly Random rand;
 
-        public LightningStrikeTrigger(EntityData data, Vector2 offset) : this(data, offset, data.Float("playerOffset", 0f), data.Float("verticallOffset", 0), data.Float("height", 0), data.Int("seed", 0), data.Float("delay", 0f), data.Bool("raining", true), data.Bool("flash", true), data.Bool("constant", false))
+        public LightningStrikeTrigger(EntityData data, Vector2 offset) : this(data, offset, data.Float("playerOffset", 0f), data.Float("verticalOffset", 0), data.Float("height", 0), data.Int("seed", 0), data.Float("delay", 0f), data.Bool("raining", true), data.Bool("flash", true), data.Bool("constant", false))
         {
         }
 
-        public LightningStrikeTrigger(EntityData data, Vector2 offset, float playerOffset, float verticalOffset, float height, int seed, float delay, bool raining, bool flash, bool constant) : base(data, offset)
+        public LightningStrikeTrigger(EntityData data, Vector2 offset, float playerOffset, float verticalOffset, float strikeHeight, int seed, float delay, bool raining, bool flash, bool constant) : base(data, offset)
         {
             PlayerOffset = playerOffset;
             VerticalOffset = verticalOffset;
-            StrikeHeight = height;
+            StrikeHeight = strikeHeight;
             Seed = seed;
             Delay = delay;
             Raining = raining;
