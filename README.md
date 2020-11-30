@@ -12,7 +12,7 @@ If you are using this mod for your map, don't forget to list it as a dependency 
   Version: 1.0.0
   Dependencies:
     - Name: YetAnotherHelper
-      Version: 1.2.0
+      Version: 1.2.1
 ```
 
 ## Entities and Triggers
