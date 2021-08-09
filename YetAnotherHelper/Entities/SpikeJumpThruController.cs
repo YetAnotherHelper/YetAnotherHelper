@@ -10,7 +10,7 @@ using System.Linq;
 namespace Celeste.Mod.YetAnotherHelper.Entities 
 {
     [CustomEntity("YetAnotherHelper/SpikeJumpThruController")]
-    class SpikeJumpThruController : Entity 
+    public class SpikeJumpThruController : Entity 
     {
         private static bool SpikeHooked;
         private static SpikeJumpThruController CurrentController;

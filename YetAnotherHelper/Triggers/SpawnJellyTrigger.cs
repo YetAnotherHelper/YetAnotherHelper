@@ -4,7 +4,7 @@ using Microsoft.Xna.Framework;
 namespace Celeste.Mod.YetAnotherHelper.Triggers
 {
     [CustomEntity("YetAnotherHelper/SpawnJellyTrigger")]
-    class SpawnJellyTrigger : Trigger
+    public class SpawnJellyTrigger : Trigger
     {
         public bool OnlyOnce { get; private set; }
 
