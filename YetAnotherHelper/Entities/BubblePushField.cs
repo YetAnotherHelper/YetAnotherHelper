@@ -190,6 +190,12 @@ namespace Celeste.Mod.YetAnotherHelper.Entities
         {
             Vector2 windDirection = (Vector2)playerWindDirection.GetValue(player);
 
+            if (player.OnGround() && (player.Ducking)) 
+            {
+                playerWindDirection.SetValue(player, windDirection);
+                return false;
+            }
+
             if (!player.JustRespawned && (float)playerNoWindTimer.GetValue(player) <= 0f && player.InControl && player.StateMachine.State != 4 && player.StateMachine.State != 2 && player.StateMachine.State != 10)
             {
                 if (move.X != 0f && player.StateMachine.State != 1) 
@@ -212,12 +218,7 @@ namespace Celeste.Mod.YetAnotherHelper.Entities
                 }
                 if (move.Y != 0f)
                 {
-                    if (player.OnGround() && (player.Ducking)) 
-                    {
-                        playerWindDirection.SetValue(player, windDirection);
-                        return false;
-                    }
-                    else if (player.OnGround() && Direction == PushDirection.Up && Strength < 1.5f)
+                    if (player.OnGround() && Direction == PushDirection.Up && Strength < 1.5f)
                     {
                         playerWindDirection.SetValue(player, windDirection);
                         return true;
