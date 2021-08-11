@@ -36,6 +36,8 @@ namespace Celeste.Mod.YetAnotherHelper.Entities
 
         private string flag;
 
+        private bool liftOffOfGround;
+
         private static FieldInfo playerWindTimeout;
 
         private static FieldInfo playerWindDirection;
@@ -51,15 +53,17 @@ namespace Celeste.Mod.YetAnotherHelper.Entities
             data.Float("strength", 1f),
             data.Attr("direction", "right"),
             data.Enum("activationMode", ActivationMode.Always),
-            data.Attr("flag", "bubble_push_field")
+            data.Attr("flag", "bubble_push_field"),
+            data.Bool("liftOffOfGround", false)
             ) { }
 
-        public BubblePushField(Vector2 position, int width, int height, float strength, string direction, ActivationMode activationMode, string flag)
+        public BubblePushField(Vector2 position, int width, int height, float strength, string direction, ActivationMode activationMode, string flag, bool liftOff)
         {
             Position = position;
             Strength = strength;
             this.activationMode = activationMode;
             this.flag = flag;
+            this.liftOffOfGround = liftOff;
 
             Enum.TryParse(direction, out Direction);
 
@@ -216,10 +220,16 @@ namespace Celeste.Mod.YetAnotherHelper.Entities
                         player.MoveH(move.X);
                     }
                 }
+
                 if (move.Y != 0f)
                 {
-                    if (player.OnGround() && Direction == PushDirection.Up && Strength < 1.5f)
+                    if (player.OnGround())
                     {
+                        if (liftOffOfGround)
+                        {   
+                            player.MoveV(move.Y);
+                        }
+
                         playerWindDirection.SetValue(player, windDirection);
                         return true;
                     }
