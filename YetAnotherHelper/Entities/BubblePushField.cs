@@ -202,11 +202,11 @@ namespace Celeste.Mod.YetAnotherHelper.Entities
 
             if (!player.JustRespawned && (float)playerNoWindTimer.GetValue(player) <= 0f && player.InControl && player.StateMachine.State != 4 && player.StateMachine.State != 2 && player.StateMachine.State != 10)
             {
-                if (move.X != 0f && player.StateMachine.State != 1) 
+                if (move.X != 0f) 
                 {
                     playerWindTimeout.SetValue(player, 0.2f);
                     windDirection.X = (float)Math.Sign(move.X);
-                    if (!player.CollideCheck<Solid>(player.Position + Vector2.UnitX * (float)(-(float)Math.Sign(move.X)) * 3f))
+                    if (liftOffOfGround || (!player.CollideCheck<Solid>(player.Position + Vector2.UnitX * (float)(-(float)Math.Sign(move.X)) * 3f) && player.StateMachine.State != 1))
                     {
                         if (move.X < 0f)
                         {
