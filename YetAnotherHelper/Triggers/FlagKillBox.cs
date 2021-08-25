@@ -5,7 +5,7 @@ using Monocle;
 namespace Celeste.Mod.YetAnotherHelper.Triggers
 {
     [CustomEntity("YetAnotherHelper/FlagKillBox")]
-    class FlagKillBox : Trigger
+    public class FlagKillBox : Trigger
     {
         public bool KillBoxActive { get; private set; }
 

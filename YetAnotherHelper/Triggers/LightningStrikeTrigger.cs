@@ -8,7 +8,7 @@ using System;
 namespace Celeste.Mod.YetAnotherHelper.Triggers
 {
     [CustomEntity("YetAnotherHelper/LightningStrikeTrigger")]
-    class LightningStrikeTrigger : Trigger
+    public class LightningStrikeTrigger : Trigger
     {
         public bool Activated { get; private set; }
 

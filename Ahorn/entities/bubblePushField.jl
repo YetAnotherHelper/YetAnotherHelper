@@ -3,7 +3,7 @@ module YetAnotherHelperBubbleField
 using ..Ahorn, Maple
 
 @mapdef Entity "YetAnotherHelper/BubbleField" BubbleField(x::Integer, y::Integer, width::Integer=Maple.defaultBlockWidth, height::Integer=Maple.defaultBlockHeight,
-	strength::Number=1.0, direction::String="Right", flag::String="bubble_push_field", activationMode::String="Always")
+	strength::Number=1.0, direction::String="Right", flag::String="bubble_push_field", activationMode::String="Always", liftOffOfGround::Bool=true)
 
 const placements = Ahorn.PlacementDict(
 	"Bubble Column (Yet Another Helper)" => Ahorn.EntityPlacement(

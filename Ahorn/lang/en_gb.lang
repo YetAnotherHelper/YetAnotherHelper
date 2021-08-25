@@ -10,6 +10,7 @@ placements.entities.YetAnotherHelper/BubbleField.tooltips.strength=The strength 
 placements.entities.YetAnotherHelper/BubbleField.tooltips.direction=The direction the bubbles move.
 placements.entities.YetAnotherHelper/BubbleField.tooltips.activationMode=Determines on which condition the bubble column activates.
 placements.entities.YetAnotherHelper/BubbleField.tooltips.flag=The session flag this bubble column reacts to (when Activation Mode is "only if flag [in]active").
+placements.entities.YetAnotherHelper/BubbleField.tooltips.liftOffOfGround=Whether or not the bubble column should push the player away from ground. This includes lifting them off of the floor (if they are standing on one), and pushing them away from walls that they are next to.
 
 # Flag Kill Barrier
 

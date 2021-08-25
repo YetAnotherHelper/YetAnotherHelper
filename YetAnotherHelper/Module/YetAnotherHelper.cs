@@ -27,6 +27,7 @@ namespace Celeste.Mod.YetAnotherHelper.Module
             RemoveLightSourcesTrigger.Load();
             StickyJellyfish.Load();
             SpikeJumpThruController.Load();
+            BubblePushField.Load();
         }
 
         public override void Initialize()

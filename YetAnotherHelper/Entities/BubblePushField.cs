@@ -2,6 +2,7 @@
 using Celeste.Mod.Entities;
 using System;
 using System.Collections.Generic;
+using System.Reflection;
 using Monocle;
 
 // Code originally written by:
@@ -23,6 +24,8 @@ namespace Celeste.Mod.YetAnotherHelper.Entities
 
         private Dictionary<WindMover, float> WindMovers = new Dictionary<WindMover, float>();
 
+        private Dictionary<WindMover, float> QueuedMovers = new Dictionary<WindMover, float>();
+
         private int FramesSinceSpawn = 0;
 
         private int SpawnFrame = 30;
@@ -33,6 +36,16 @@ namespace Celeste.Mod.YetAnotherHelper.Entities
 
         private string flag;
 
+        private bool liftOffOfGround;
+
+        private static FieldInfo playerWindTimeout;
+
+        private static FieldInfo playerWindDirection;
+        
+        private static FieldInfo playerClimbNoMoveTimer;
+
+        private static FieldInfo playerNoWindTimer;
+
         public BubblePushField(EntityData data, Vector2 offset) : this(
             data.Position + offset,
             data.Width,
@@ -40,15 +53,17 @@ namespace Celeste.Mod.YetAnotherHelper.Entities
             data.Float("strength", 1f),
             data.Attr("direction", "right"),
             data.Enum("activationMode", ActivationMode.Always),
-            data.Attr("flag", "bubble_push_field")
+            data.Attr("flag", "bubble_push_field"),
+            data.Bool("liftOffOfGround", false)
             ) { }
 
-        public BubblePushField(Vector2 position, int width, int height, float strength, string direction, ActivationMode activationMode, string flag)
+        public BubblePushField(Vector2 position, int width, int height, float strength, string direction, ActivationMode activationMode, string flag, bool liftOff)
         {
             Position = position;
             Strength = strength;
             this.activationMode = activationMode;
             this.flag = flag;
+            this.liftOffOfGround = liftOff;
 
             Enum.TryParse(direction, out Direction);
 
@@ -116,36 +131,135 @@ namespace Celeste.Mod.YetAnotherHelper.Entities
                     }
                 }
 
+                QueuedMovers.Clear();
                 foreach (WindMover mover in WindMovers.Keys)
                 {
                     float windSpeed = Strength * 2f * Ease.CubeInOut(WindMovers[mover]);
 
                     if (mover != null && mover.Entity != null && mover.Entity.Scene != null)
+                    {
+                        Vector2 move = Vector2.Zero;
                         switch (Direction)
                         {
                             case PushDirection.Up:
-                                mover.Move(new Vector2(0, -windSpeed));
+                                move = new Vector2(0, -windSpeed);
                                 break;
 
                             case PushDirection.Down:
-                                mover.Move(new Vector2(0, windSpeed));
+                                move = new Vector2(0, windSpeed);
                                 break;
 
                             case PushDirection.Left:
-                                mover.Move(new Vector2(-windSpeed, 0));
+                                move = new Vector2(-windSpeed, 0);
                                 break;
 
                             case PushDirection.Right:
-                                mover.Move(new Vector2(windSpeed, 0));
+                                move = new Vector2(windSpeed, 0);
                                 break;
                         }
+
+                        if (mover.Entity.GetType() == typeof(Player)) 
+                        {
+                            if (!MovePlayer((Player)mover.Entity, move)) 
+                            {
+                                QueuedMovers.Add(mover, 0f);
+                            }
+                        } 
+                        else
+                        {
+                            mover.Move(move);
+                        }
+                    }
+                }
+
+                if (QueuedMovers.Count > 0)
+                {
+                    foreach (KeyValuePair<WindMover, float> pair in QueuedMovers)
+                    {
+                        WindMovers[pair.Key] = pair.Value;
+                    }
                 }
             }
+        }
+
+        public static void Load() 
+        {
+            playerWindTimeout = typeof(Player).GetField("windTimeout", BindingFlags.NonPublic | BindingFlags.Instance);
+            playerWindDirection = typeof(Player).GetField("windDirection", BindingFlags.NonPublic | BindingFlags.Instance);
+            playerClimbNoMoveTimer = typeof(Player).GetField("climbNoMoveTimer", BindingFlags.NonPublic | BindingFlags.Instance);
+            playerNoWindTimer = typeof(Player).GetField("noWindTimer", BindingFlags.NonPublic | BindingFlags.Instance);
+        }
+
+        private bool MovePlayer(Player player, Vector2 move) 
+        {
+            Vector2 windDirection = (Vector2)playerWindDirection.GetValue(player);
+
+            if (player.OnGround() && (player.Ducking)) 
+            {
+                playerWindDirection.SetValue(player, windDirection);
+                return false;
+            }
+
+            if (!player.JustRespawned && (float)playerNoWindTimer.GetValue(player) <= 0f && player.InControl && player.StateMachine.State != 4 && player.StateMachine.State != 2 && player.StateMachine.State != 10)
+            {
+                if (move.X != 0f) 
+                {
+                    playerWindTimeout.SetValue(player, 0.2f);
+                    windDirection.X = (float)Math.Sign(move.X);
+                    if (liftOffOfGround || (!player.CollideCheck<Solid>(player.Position + Vector2.UnitX * (float)(-(float)Math.Sign(move.X)) * 3f) && player.StateMachine.State != 1))
+                    {
+                        if (move.X < 0f)
+                        {
+                            move.X = Math.Max(move.X, (float)(SceneAs<Level>().Bounds.Left - (player.ExactPosition.X + player.Collider.Left)));
+                        }
+                        else
+                        {
+                            move.X = Math.Min(move.X, (float)(SceneAs<Level>().Bounds.Right - (player.ExactPosition.X + player.Collider.Right)));
+                        }
+
+                        player.MoveH(move.X);
+                    }
+                }
+
+                if (move.Y != 0f)
+                {
+                    if (player.OnGround())
+                    {
+                        if (liftOffOfGround)
+                        {   
+                            player.MoveV(move.Y);
+                        }
+
+                        playerWindDirection.SetValue(player, windDirection);
+                        return true;
+                    }
+
+                    playerWindTimeout.SetValue(player, 0.2f);
+                    windDirection.Y = (float)Math.Sign(move.Y);
+
+                    if (player.Bottom > (float)SceneAs<Level>().Bounds.Top)
+                    {
+                        if (player.StateMachine.State == 1)
+                        {
+                            if (move.Y <= 0f || (float)playerClimbNoMoveTimer.GetValue(player) > 0f)
+                            {
+                                playerWindDirection.SetValue(player, windDirection);
+                                return false;
+                            }
+                            move.Y *= 0.4f;
+                        }
+                        player.MoveV(move.Y);
+                    }
+                }
+            }
+
+            playerWindDirection.SetValue(player, windDirection);
+            return true;
         }
     }
 
     class BubbleParticle : Component 
-        {
+    {
         public Vector2 Position = Vector2.Zero;
 
         public BubblePushField BubbleField;
@@ -169,7 +283,7 @@ namespace Celeste.Mod.YetAnotherHelper.Entities
             BubbleField = (BubblePushField)entity;
             Position = BubbleField.Position;
 
-            Texture = GFX.Game["particles/YetAnotherHelper/bubble_" + TextureNames[Calc.Random.Next(0, 1)]];
+            Texture = GFX.Game["particles/YetAnotherHelper/bubble_" + TextureNames[Calc.Random.Next(0, 2)]];
 
             // Determine bubble spawn point
             switch(BubbleField.Direction) 
