@@ -1,0 +1,63 @@
+# Entities
+#   entities.name.placements.name.*=
+#   entities.name.attributes.description.*=
+
+# Bubble Field
+
+entities.YetAnotherHelper/BubbleField.placements.name.normal=Bubble Column
+
+entities.YetAnotherHelper/BubbleField.attributes.description.strength=The strength with which the bubbles push objects (If value is 0 or negative this won't work).
+entities.YetAnotherHelper/BubbleField.attributes.description.direction=The direction the bubbles move.
+entities.YetAnotherHelper/BubbleField.attributes.description.activationMode=Determines on which condition the bubble column activates.
+entities.YetAnotherHelper/BubbleField.attributes.description.flag=The session flag this bubble column reacts to (when Activation Mode is "only if flag [in]active").
+entities.YetAnotherHelper/BubbleField.attributes.description.liftOffOfGround=Whether or not the bubble column should push the player away from ground. This includes lifting them off of the floor (if they are standing on one), and pushing them away from walls that they are next to.
+
+# Flag Kill Barrier
+
+entities.YetAnotherHelper/FlagKillBarrier.placements.name.normal=Flag Kill Barrier
+
+entities.YetAnotherHelper/FlagKillBarrier.attributes.description.flag=The flag needed for the barrier to be active.
+entities.YetAnotherHelper/FlagKillBarrier.attributes.description.trueColorHex=Color of the barrier when it is active.
+entities.YetAnotherHelper/FlagKillBarrier.attributes.description.falseColorHex=Color of the barrier when it is inactive.
+
+# Spiked Jump Through Controller
+
+entities.YetAnotherHelper/SpikeJumpThruController.placements.name.normal=Spike Jump Thru Controller
+
+entities.YetAnotherHelper/SpikeJumpThruController.attributes.description.persistent=Whether or not the controller should stay active across rooms. If set to true, the controller's effects will stay active until the player leaves a room with a non-persistent controller.
+
+# -- Triggers --
+
+# Flag Kill Box
+
+triggers.YetAnotherHelper/FlagKillBox.placements.name.normal=Flag Kill Box
+
+triggers.YetAnotherHelper/FlagKillBox.attributes.description.flag=The flag needed for the trigger to be active.
+
+# Lightning Strike Trigger
+
+triggers.YetAnotherHelper/LightningStrikeTrigger.placements.name.normal=Lightning Strike Trigger
+
+triggers.YetAnotherHelper/LightningStrikeTrigger.attributes.description.playerOffset=The X offset of the lightning relative to the player's position.
+triggers.YetAnotherHelper/LightningStrikeTrigger.attributes.description.verticalOffset=The Y offset of the lightning relative to the player's position.
+triggers.YetAnotherHelper/LightningStrikeTrigger.attributes.description.strikeHeight=The height of the lightning strike. If set to 0, the height will be the screen's height.
+triggers.YetAnotherHelper/LightningStrikeTrigger.attributes.description.seed=The seed for the randomizer which generates the lightning strike.
+triggers.YetAnotherHelper/LightningStrikeTrigger.attributes.description.delay=The delay, in seconds, between the player entering the trigger and the appearance of the lightning strike.
+triggers.YetAnotherHelper/LightningStrikeTrigger.attributes.description.rain=Upon lightning strike, rain will begin falling in the level.
+triggers.YetAnotherHelper/LightningStrikeTrigger.attributes.description.flash=Upon lightning strike, the screen will flash white.
+triggers.YetAnotherHelper/LightningStrikeTrigger.attributes.description.constant=If lightning should constantly strike while the player is inside the trigger.
+
+# Remove Light Sources Trigger
+
+triggers.YetAnotherHelper/RemoveLightSourcesTrigger.placements.name.normal=Remove Light Sources Trigger
+
+triggers.YetAnotherHelper/RemoveLightSourcesTrigger.attributes.description.offsetTo=Determines how the lighting changes passing through the trigger.
+triggers.YetAnotherHelper/RemoveLightSourcesTrigger.attributes.description.offsetFrom=Determines how the lighting changes passing through the trigger backwards.
+triggers.YetAnotherHelper/RemoveLightSourcesTrigger.attributes.description.onlyOnce=If checked, the trigger will be disabled when the player first leaves it.
+triggers.YetAnotherHelper/RemoveLightSourcesTrigger.attributes.description.positionMode=Determines which direction the lighting fades towards.
+
+# Spawn Jelly Trigger
+
+triggers.YetAnotherHelper/SpawnJellyTrigger.placements.name.normal=Spawn Jelly Trigger
+
+triggers.YetAnotherHelper/SpawnJellyTrigger.attributes.description.onlyOnce=If set to false, jellies will spawn every time the player enters the trigger again.
