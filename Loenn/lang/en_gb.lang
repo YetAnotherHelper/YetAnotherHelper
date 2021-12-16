@@ -26,6 +26,10 @@ entities.YetAnotherHelper/SpikeJumpThruController.placements.name.normal=Spike J
 
 entities.YetAnotherHelper/SpikeJumpThruController.attributes.description.persistent=Whether or not the controller should stay active across rooms. If set to true, the controller's effects will stay active until the player leaves a room with a non-persistent controller.
 
+# Sticky Jellyfish
+
+entities.YetAnotherHelper/StickyJellyfish.placements.name.normal=Sticky Jellyfish
+
 # -- Triggers --
 
 # Flag Kill Box
