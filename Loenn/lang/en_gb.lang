@@ -47,7 +47,7 @@ triggers.YetAnotherHelper/LightningStrikeTrigger.attributes.description.vertical
 triggers.YetAnotherHelper/LightningStrikeTrigger.attributes.description.strikeHeight=The height of the lightning strike. If set to 0, the height will be the screen's height.
 triggers.YetAnotherHelper/LightningStrikeTrigger.attributes.description.seed=The seed for the randomizer which generates the lightning strike.
 triggers.YetAnotherHelper/LightningStrikeTrigger.attributes.description.delay=The delay, in seconds, between the player entering the trigger and the appearance of the lightning strike.
-triggers.YetAnotherHelper/LightningStrikeTrigger.attributes.description.rain=Upon lightning strike, rain will begin falling in the level.
+triggers.YetAnotherHelper/LightningStrikeTrigger.attributes.description.raing=Upon lightning strike, rain will begin falling in the level.
 triggers.YetAnotherHelper/LightningStrikeTrigger.attributes.description.flash=Upon lightning strike, the screen will flash white.
 triggers.YetAnotherHelper/LightningStrikeTrigger.attributes.description.constant=If lightning should constantly strike while the player is inside the trigger.
 
