@@ -1,6 +1,6 @@
 - Name: YetAnotherHelper
-  Version: 1.2.3
+  Version: 1.2.4
   DLL: YetAnotherHelper/bin/Debug/net452/YetAnotherHelper.dll
   Dependencies:
     - Name: Everest
-      Version: 1.1958.0
+      Version: 1.3471.0
